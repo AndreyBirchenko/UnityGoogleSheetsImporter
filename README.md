@@ -5,4 +5,4 @@
 
 ## Начало работы
 Откройте окно загрузки таблиц. Для этого наэмите Tools -> GoogleSheetImporter
-
+![alt text](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/Images/photo_1.jpg)
