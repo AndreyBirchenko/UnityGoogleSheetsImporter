@@ -13,7 +13,7 @@ Click **Add** to add a new table.
 
 ![alt text](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/Images/photo_2.png)
 
-In the column **Download url path:** insert [public](https://support.google.com/docs/answer/2494822 ?hl=en&co=GENIE.Platform%3DDesktop#zippy=) link to google table
+In the column **Download url path:** insert [public](https://support.google.com/docs/answer/2494822?hl=en&co=GENIE.Platform%3DDesktop#zippy=) link to google table
 (this is the link that appears after you click the "Share" button)
 
 In the column **Local path:** add the path where you want to save the table
