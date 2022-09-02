@@ -21,11 +21,11 @@ namespace AB_GoogleSheetImporter.Editor
         private List<TableData> _content;
         private GSImporter _importer;
 
-        [MenuItem("Tools/GoogleSheetsDownloader")]
+        [MenuItem("Tools/GoogleSheetsImporter")]
         public static void ShowExample()
         {
             var wnd = GetWindow<GSImporterEditor>();
-            wnd.titleContent = new GUIContent("GoogleSheetsDownloader");
+            wnd.titleContent = new GUIContent("GoogleSheetsImporter");
         }
 
         private void OnDisable()
