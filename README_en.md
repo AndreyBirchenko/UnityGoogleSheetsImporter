@@ -1,10 +1,10 @@
-# UnityGoogleSheetsImporter - простой инструмент для импортирования гугл таблиц в ваш Unity проект.
-*Read this in other languages: [Русский](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/README.md), English*
+# UnityGoogleSheetsImporter is a simple tool for importing Google tables into your Unity project.
+*Read this in other languages: [Русский](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/README.md), [English](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/README_en.md)*
 
-## Установка
+## Installation
 [Download ](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/raw/master/AB_GSImporter_v2.9.22.unitypackage) the unity package file and import it into the project.
 
-## Начало работы
+## Getting started
 Open the table loading window. To do this, click **Tools -> GoogleSheetsImporter**.
 
 ![alt text](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/Images/photo_1.jpg)
