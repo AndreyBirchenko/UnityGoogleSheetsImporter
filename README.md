@@ -2,6 +2,8 @@
 *Read this in other languages: [Русский](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/README.md), [English](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/README_en.md)*
 
 ## Установка
+> **ВАЖНО!** Если вы используете версию Unity ниже чем 2021.1 работоспособность не гарантируется.
+
 [Скачать](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/raw/master/AB_GSImporter_v2.9.22.unitypackage) unity packge файл и импортировать в проект.
 
 ## Начало работы
