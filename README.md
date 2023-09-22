@@ -4,6 +4,8 @@
 ## Установка
 > **ВАЖНО!** Если вы используете версию Unity ниже чем 2021.1 работоспособность не гарантируется.
 
+[Установить](https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-official-via-UPM) NewtonsoftJson
+
 [Скачать](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/raw/master/AB_GSImporter_v2.9.22.unitypackage) unity packge файл и импортировать в проект.
 
 ## Начало работы
