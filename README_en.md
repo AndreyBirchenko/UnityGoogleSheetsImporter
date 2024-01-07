@@ -4,11 +4,17 @@
 ## Installation
 > **IMPORTANT!** If you are using a Unity version lower than 2021.1, performance is not guaranteed.
 
-[Install](https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-official-via-UPM) Newtonsoft Json
-
-[Download ](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/raw/master/AB_GSImporter_v2.9.22.unitypackage) the unity package file and import it into the project.
+## As a unity module
+Installation as a unity module via a git link in PackageManager or direct editing of `Packages/manifest.json`:
+```
+"com.anbi.google-sheet-importer": "https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter.git",
+```
 
 ## Getting started
+You can download tables both after the program execution and in the editor using the UI utility
+
+### Download using the utility
+
 Open the table loading window. To do this, click **Tools -> GoogleSheetsImporter**.
 
 ![alt text](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/Images/photo_1.jpg)
@@ -28,6 +34,13 @@ In the column **Name:** add a table name.
 In the column **File format:** select the desired format.
 
 Click **Download** and wait for the table to load.
+
+### Downloading during the execution of the program
+```c#
+//Public link to the table
+var url = "https://docs.google.com/spreadsheets/d/xxxx/edit?usp=sharing";
+var csv = await GSImporter.DownloadCsvAsync(url);
+```
 
 ## Selected toggle
 If you have a lot of tables and you don't want to download everything again, you can uncheck Selected from those that don't need updating.

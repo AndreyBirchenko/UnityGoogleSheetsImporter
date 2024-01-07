@@ -1,0 +1,18 @@
+{
+    "name": "AB_GoogleSheetImporterEditor",
+    "rootNamespace": "",
+    "references": [
+        "AB_GoogleSheetImporter"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

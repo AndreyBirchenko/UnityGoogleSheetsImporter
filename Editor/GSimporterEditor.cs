@@ -1,17 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
-using Newtonsoft.Json;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
 
 using UnityEditor;
 
 using UnityEngine;
 using UnityEngine.UIElements;
-
-using UnityEditor.UIElements;
-
-using Task = System.Threading.Tasks.Task;
 
 namespace AB_GoogleSheetImporter.Editor
 {
@@ -19,7 +15,7 @@ namespace AB_GoogleSheetImporter.Editor
     {
         private string _savePath;
         private List<TableData> _content;
-        private GSImporter _importer;
+        private BinaryFormatter _formatter = new();
 
         [MenuItem("Tools/GoogleSheetsImporter")]
         public static void ShowExample()
@@ -35,9 +31,14 @@ namespace AB_GoogleSheetImporter.Editor
 
         public void CreateGUI()
         {
-            _savePath = Application.persistentDataPath + "GSImporterData.json";
+            var folderPath = Application.dataPath + "/Editor";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            _savePath = folderPath + "/GSImporterData.dat";
             _content = GetContent();
-            _importer = new GSImporter();
 
             var root = rootVisualElement;
 
@@ -144,8 +145,8 @@ namespace AB_GoogleSheetImporter.Editor
         {
             if (File.Exists(_savePath))
             {
-                var json = File.ReadAllText(_savePath);
-                return JsonConvert.DeserializeObject<List<TableData>>(json);
+                using var fs = new FileStream(_savePath, FileMode.OpenOrCreate);
+                return _formatter.Deserialize(fs) as List<TableData>;
             }
 
             return new List<TableData>();
@@ -153,8 +154,8 @@ namespace AB_GoogleSheetImporter.Editor
 
         private void SaveData()
         {
-            var json = JsonConvert.SerializeObject(_content);
-            File.WriteAllText(_savePath, json);
+            using var fs = new FileStream(_savePath, FileMode.OpenOrCreate);
+            _formatter.Serialize(fs, _content);
         }
 
         private async void DownloadAsync()
@@ -167,7 +168,7 @@ namespace AB_GoogleSheetImporter.Editor
                     var data = _content[i];
                     if (data.Selected == false) continue;
 
-                    await _importer.DownloadAsync(
+                    await GSImporter.DownloadAsync(
                         data.Name,
                         data.DownloadUrlPath,
                         data.LocalPath,
