@@ -1,7 +1,7 @@
 {
   "name": "com.anbi.google-sheet-importer",
   "author": "AndreyBirchenko",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Unity Google Sheets Importer",
   "description": "Unity Google Sheets Importer",
   "unity": "2021.3",

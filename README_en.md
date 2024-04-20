@@ -11,17 +11,22 @@ Installation as a unity module via a git link in PackageManager or direct editin
 ```
 
 ## Getting started
+> **IMPORTANT!** It is not recommended to use downloading data from Google Docs in release builds:
+> * Response time can reach ten seconds.
+> * The limit on accessing a document can quickly overflow and the document will be blocked for a while.
+
 You can download tables both after the program execution and in the editor using the UI utility
 
 ### Download using the utility
+> **IMPORTANT!** When downloading using the utility, only the first page of the table will always be downloaded
 
 Open the table loading window. To do this, click **Tools -> GoogleSheetsImporter**.
 
-![alt text](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/Images/photo_1.jpg)
+<img src="Images/photo_1.jpg" alt="Images/photo_1.jpg" />
 
 Click **Add** to add a new table.
 
-![alt text](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/Images/photo_2.png)
+<img src="Images/photo_2.png" alt="Images/photo_2.png" />
 
 In the column **Download url path:** insert [public](https://support.google.com/docs/answer/2494822?hl=en&co=GENIE.Platform%3DDesktop#zippy=) link to google table
 (this is the link that appears after you click the "Share" button)
@@ -40,7 +45,12 @@ Click **Download** and wait for the table to load.
 //Public link to the table
 var url = "https://docs.google.com/spreadsheets/d/xxxx/edit?usp=sharing";
 var csv = await GSImporter.DownloadCsvAsync(url);
+//You can also download a specific page by its id
+var sheetId = 0;
+var concretePageCsv = await GSImporter.DownloadCsvAsync(url, sheetId);
 ```
+To get the page id, you need to open the Google spreadsheet on the desired page and copy the numbers in the link after ``#gid=``
+<img src="Images/photo_3.png" alt="Images/photo_3.png" />
 
 ## Selected toggle
 If you have a lot of tables and you don't want to download everything again, you can uncheck Selected from those that don't need updating.

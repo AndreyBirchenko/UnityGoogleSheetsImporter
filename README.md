@@ -11,17 +11,22 @@
 ```
 
 ## Начало работы
+> **ВАЖНО!** Не рекомендуется использовать скачивание данных с GoogleDocs в релизных билдах:
+> * Время отклика может достигать десятка секунд.
+> * Лимит по обращению к документу может быстро переполниться и документ будет заблокирован на какое-то время.
+
 Вы можете скачивать таблицы как походу исполнения программы так и в эдиторе с помощью UI утилиты
 
 ### Скачивание с помощью утилиты
+> **ВАЖНО!** При скачивании с помощью утилиты всегда будет скачана только первая страница таблицы
 
 Откройте окно загрузки таблиц. Для этого нажмите **Tools -> GoogleSheetsImporter**.
 
-![alt text](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/Images/photo_1.jpg)
+<img src="Images/photo_1.jpg" alt="Images/photo_1.jpg" />
 
 Нажмите **Add** чтобы добавить новую таблицу.
 
-![alt text](https://github.com/AndreyBirchenko/UnityGoogleSheetsImporter/blob/master/Images/photo_2.png)
+<img src="Images/photo_2.png" alt="Images/photo_2.png" />
 
 В графу **Download url path:** вставьте [публичную](https://support.google.com/docs/answer/2494822?hl=en&co=GENIE.Platform%3DDesktop#zippy=) ссылку на гугл таблицу
 (это та ссылка которая появляется после того как вы нажали кнопку "Поделиться")
@@ -40,7 +45,14 @@
 //Публичная ссылка на таблицу
 var url = "https://docs.google.com/spreadsheets/d/xxxx/edit?usp=sharing";
 var csv = await GSImporter.DownloadCsvAsync(url);
+
+//Вы также можете скачать конкретную страницу по её id
+var sheetId = 0;
+var concretePageCsv = await GSImporter.DownloadCsvAsync(url, sheetId);
 ```
+Чтобы получить id страницы вам нужно открыть гугл таблицу на нужной странице и скопировать цифры в ссылке после ```#gid=```
+
+<img src="Images/photo_3.png" alt="Images/photo_3.png" />
 
 ## Графа Selected
 Если у вас много таблиц и вы не хотите скачивать заново все, вы можете снять галочку Selected с тех, которые не нуждаются в обновлении.
